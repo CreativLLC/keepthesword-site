@@ -1,0 +1,72 @@
+/* Keep the Sword: design tokens v1.0 (HD Pixel).
+   COPIED from brand/system/tokens.css. Only changes: @font-face points at the site's subset woff2 files
+   (Latin only) with font-display: swap, and the page-level html/body rules at the end are left out.
+   Source of truth for colour, type and spacing. tokens.json holds the same values.
+   Sizes are for a 1920 x 1080 frame. For 4K, double every px value (or set --k-scale: 6). */
+
+@font-face { font-family: 'Jersey 10'; src: url('../fonts/Jersey10-Regular.woff2') format('woff2'); font-display: swap; }
+@font-face { font-family: 'DotGothic16'; src: url('../fonts/DotGothic16-Regular.woff2') format('woff2'); font-display: swap; }
+@font-face { font-family: 'Jacquard 24'; src: url('../fonts/Jacquard24-Regular.woff2') format('woff2'); font-display: swap; }
+
+:root {
+  /* ---- colour: base (the night keep) */
+  --k-abyss:        #05070d;  /* outlines, deepest shadow, text shadow, text on light chips */
+  --k-night:        #0c1224;  /* window fill, page, strip */
+  --k-night-hi:     #16203c;  /* 1 art px highlight row under a window's top border */
+  --k-stone:        #1b2440;  /* walls, raised fills */
+  --k-slate:        #33416a;  /* stone light, dividers. Never a text background */
+  --k-bar-empty:    #161a2e;  /* empty part of a stat bar */
+  --k-chip:         #222a46;  /* neutral chip fill (CLOUD OFF) */
+
+  /* ---- colour: steel (frames, labels, wordmark) */
+  --k-steel-shade:  #4f5d86;  /* frame bottom/right, strip edge. Never text */
+  --k-steel:        #8d9bc0;  /* frame face, to-do text */
+  --k-steel-light:  #c9d6ee;  /* frame top/left, body text, LV chip fill */
+  --k-mist:         #7d8fbf;  /* labels, units, secondary text */
+  --k-done:         #6f7fa8;  /* finished list items (on night only) */
+  --k-moonwhite:    #f4f8ff;  /* headlines, primary text, glints */
+
+  /* ---- colour: meaning. Teal = the machine. Ember = people. Moon = the world and the sword. */
+  --k-teal:         #4fe6d4;  /* screens, VRAM, NOW, tabs, "runs on my PC" */
+  --k-teal-light:   #b8fff4;  /* tab text, teal frame highlight */
+  --k-teal-shade:   #1f8a86;  /* teal frame bottom/right */
+  --k-teal-deep:    #0d3a40;  /* teal window fill tint, icon shadow */
+  --k-ember:        #ff7a4a;  /* candle, rewards, warm words */
+  --k-ember-light:  #ffd6a8;  /* warm text, candle core */
+  --k-hp:           #ff5a5f;  /* HP bar only */
+  --k-off:          #ff9a8a;  /* "OFF" and "FAILED" status words */
+
+  /* ---- colour: Andrew (sprite only, never UI) */
+  --k-outline-sprite: #1b1120;
+
+  /* ---- glows (only next to a source) */
+  --k-glow-teal:  0 0 22px rgba(79, 230, 212, .5);
+  --k-glow-hp:    0 0 18px rgba(255, 90, 95, .45);
+  --k-glow-tab:   0 0 12px rgba(79, 230, 212, .6);
+  --k-sheen:      linear-gradient(170deg, rgba(150, 175, 240, .12) 0%, rgba(150, 175, 240, 0) 45%);
+  --k-text-shadow: 0 3px 0 #05070d;     /* 1 art px at 3x. Use 0 4px 0 at 4x, 0 6px 0 at 4K */
+
+  /* ---- type */
+  --k-font-label: 'Jersey 10', sans-serif;      /* labels, numbers, stats, tabs, buttons, thumbnail words */
+  --k-font-body:  'DotGothic16', monospace;     /* sentences: dialog, quest steps, captions */
+  --k-font-title: 'Jacquard 24', serif;         /* quest titles only */
+
+  --k-size-label-s: 30px;   /* stat labels, chips, tabs, meta */
+  --k-size-label-m: 40px;   /* values (86 / 100) */
+  --k-size-label-l: 60px;   /* names, window headings */
+  --k-size-thumb:   180px;  /* thumbnail words, 160 to 200 */
+  --k-size-body:    32px;   /* DotGothic16 at 2x its 16 px grid */
+  --k-size-body-s:  24px;   /* captions on sheets and docs only, never on video */
+  --k-size-title-s: 48px;   /* quest title in the strip */
+  --k-size-title-l: 72px;   /* quest title on the card */
+  --k-track-label:  2px;    /* UPPERCASE labels: 2 to 4 px */
+  --k-track-name:   3px;
+
+  /* ---- grid and spacing (art px x scale) */
+  --k-scale:        3;      /* UI at 1080p. 6 at 4K. Scenes 4 or 5, avatar 16, sprite sheets 8 */
+  --k-px:           3px;    /* 1 art px at the UI scale */
+  --k-gap:          15px;   /* 5 art px between windows and at screen edges */
+  --k-pad:          18px;   /* 6 art px inside a window (5 to 8 allowed) */
+  --k-bar-h:        21px;   /* 7 art px */
+  --k-line:         3px;    /* 1 art px outline */
+}

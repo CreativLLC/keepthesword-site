@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Keep the Sword: hire the blacksmith, own the sword</title>
+<meta name="description" content="Andrew builds real things with AI on his own PC at home, and shows what worked, what broke and what you get to keep. Own your AI, your work, your body and your mind.">
+<link rel="canonical" href="https://keepthesword.com/">
+<meta name="theme-color" content="#0c1224">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Keep the Sword">
+<meta property="og:title" content="Keep the Sword">
+<meta property="og:description" content="Hire the blacksmith. Own the sword. Real builds with AI on a real PC at home.">
+<meta property="og:url" content="https://keepthesword.com/">
+<meta property="og:image" content="https://keepthesword.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Pixel art of Andrew at his PC in a moonlit stone keep, a sword on the wall in the moonbeam, and the words Keep the Sword.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Keep the Sword">
+<meta name="twitter:description" content="Hire the blacksmith. Own the sword. Real builds with AI on a real PC at home.">
+<meta name="twitter:image" content="https://keepthesword.com/assets/og-image.png">
+<link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" href="assets/icons/icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preload" href="assets/fonts/DotGothic16-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/Jersey10-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="hero" id="top">
+  <!-- The keep at night. Layers, light and values follow brand/system/src/scene.js (hero-space coordinates). -->
+  <div class="scene" role="img" aria-label="Pixel art: Andrew at his PC in a moonlit stone keep at night. A candle burns on a stack of books, and a sword hangs on the wall in the moonbeam from an arched window.">
+    <img class="l sky" src="assets/img/scene/sky-v8.png" alt="" width="640" height="360">
+    <img class="l room" src="assets/img/scene/room-v8.png" alt="" width="640" height="360">
+    <svg class="l light" viewBox="-80 -45 640 360" aria-hidden="true" focusable="false">
+      <defs>
+        <radialGradient id="gWin" cx="392" cy="112" r="110" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#9fbaff" stop-opacity=".30"/><stop offset="1" stop-color="#9fbaff" stop-opacity="0"/></radialGradient>
+        <linearGradient id="gShaft" x1="392" y1="58" x2="250" y2="262" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#e2ecff" stop-opacity=".42"/>
+          <stop offset=".5" stop-color="#c4d6ff" stop-opacity=".18"/>
+          <stop offset="1" stop-color="#b0c4ff" stop-opacity=".06"/></linearGradient>
+        <radialGradient id="gSword" cx="326" cy="141" r="44" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#cfdcff" stop-opacity=".22"/><stop offset="1" stop-color="#cfdcff" stop-opacity="0"/></radialGradient>
+        <radialGradient id="gScreen" cx="187" cy="160" r="60" gradientUnits="userSpaceOnUse" gradientTransform="translate(187 160) scale(1 .7) translate(-187 -160)">
+          <stop offset="0" stop-color="#4fe6d4" stop-opacity=".55"/><stop offset=".45" stop-color="#3bb8c8" stop-opacity=".18"/><stop offset="1" stop-color="#3bb8c8" stop-opacity="0"/></radialGradient>
+        <radialGradient id="gPage" cx="224" cy="157" r="26" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#fff1d6" stop-opacity=".14"/><stop offset="1" stop-color="#fff1d6" stop-opacity="0"/></radialGradient>
+        <radialGradient id="gCandle" cx="149" cy="157" r="48" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#ffb070" stop-opacity=".62"/><stop offset=".3" stop-color="#ff8a4c" stop-opacity=".22"/><stop offset="1" stop-color="#ff8a4c" stop-opacity="0"/></radialGradient>
+        <linearGradient id="gFog" x1="0" y1="186" x2="0" y2="250" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#7c8ed6" stop-opacity="0"/><stop offset=".45" stop-color="#7c8ed6" stop-opacity=".13"/><stop offset="1" stop-color="#7c8ed6" stop-opacity="0"/></linearGradient>
+        <filter id="fs" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.4"/></filter>
+        <filter id="fs2" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation=".8"/></filter>
+      </defs>
+      <rect x="-100" y="-100" width="800" height="500" fill="url(#gWin)"/>
+      <g class="shafts">
+        <g filter="url(#fs)">
+          <polygon points="369,60 391,52 391,170 362,210 255,262 228,262" fill="url(#gShaft)"/>
+          <polygon points="392,52 410,62 410,170 384,210 282,262 257,262" fill="url(#gShaft)"/>
+        </g>
+        <g filter="url(#fs2)" opacity=".55">
+          <polygon points="372,70 376,68 262,250 256,250" fill="url(#gShaft)"/>
+          <polygon points="383,60 386,60 272,254 268,254" fill="url(#gShaft)"/>
+          <polygon points="399,62 404,64 290,256 284,256" fill="url(#gShaft)"/>
+        </g>
+      </g>
+      <rect x="-100" y="-100" width="800" height="500" fill="url(#gSword)"/>
+      <rect x="-100" y="-100" width="800" height="500" fill="url(#gScreen)"/>
+      <rect x="-100" y="-100" width="800" height="500" fill="url(#gPage)"/>
+      <rect x="-100" y="-100" width="800" height="500" fill="url(#gCandle)"/>
+      <rect x="-100" y="186" width="800" height="64" fill="url(#gFog)"/>
+    </svg>
+    <img class="l bloom1" src="assets/img/scene/glow-v8.png" alt="" width="640" height="360">
+    <img class="l bloom2" src="assets/img/scene/glow-v8.png" alt="" width="640" height="360">
+    <svg class="l fx" viewBox="-80 -45 640 360" aria-hidden="true" focusable="false">
+      <defs>
+        <filter id="fh"><feGaussianBlur stdDeviation="1.2"/></filter>
+        <radialGradient id="gFlick" cx="149" cy="157" r="30" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#ffb070" stop-opacity=".45"/><stop offset=".4" stop-color="#ff8a4c" stop-opacity=".14"/><stop offset="1" stop-color="#ff8a4c" stop-opacity="0"/></radialGradient>
+      </defs>
+      <!-- candle flicker: extra warm light at the candle, opacity animated -->
+      <rect class="flick" x="100" y="110" width="100" height="100" fill="url(#gFlick)" opacity=".55"/>
+      <!-- sword shimmer: a light runs along the fuller (centre row, keeps the blade symmetric), then a glint -->
+      <rect class="sweep" x="300" y="140" width="3" height="1" fill="#ffffff" shape-rendering="crispEdges"/>
+      <g class="star" fill="#ffffff" shape-rendering="crispEdges">
+        <rect x="313" y="140" width="5" height="1"/><rect x="315" y="138" width="1" height="5"/>
+      </g>
+      <!-- dust in the moonbeam (tools/motes.mjs) -->
+      <g class="drift d1"><g filter="url(#fh)" fill="#cfe0ff" opacity=".35"><circle cx="313.5" cy="153.5" r="2.2"/></g><g fill="#eef4ff" shape-rendering="crispEdges"><rect class="tw" x="329" y="139" width="1" height="1" opacity="0.58"/><rect x="286" y="251" width="1" height="1" opacity="0.42"/><rect x="387" y="67" width="1" height="1" opacity="0.37"/><rect x="334" y="222" width="1" height="1" opacity="0.71"/><rect x="335" y="221" width="1" height="1" opacity="0.55"/><rect class="tw" x="282" y="253" width="1" height="1" opacity="0.70"/><rect x="270" y="219" width="1" height="1" opacity="0.85"/><rect x="313" y="153" width="1" height="1" opacity="0.37"/><rect x="382" y="163" width="1" height="1" opacity="0.81"/><rect x="320" y="222" width="1" height="1" opacity="0.53"/><rect class="tw" x="389" y="157" width="1" height="1" opacity="0.56"/><rect x="273" y="251" width="1" height="1" opacity="0.45"/><rect x="388" y="154" width="1" height="1" opacity="0.35"/><rect x="330" y="237" width="1" height="1" opacity="0.45"/><rect x="313" y="166" width="1" height="1" opacity="0.37"/><rect class="tw" x="250" y="253" width="1" height="1" opacity="0.74"/></g></g>
+      <g class="drift d2"><g filter="url(#fh)" fill="#cfe0ff" opacity=".35"><circle cx="335.5" cy="203.5" r="2.2"/><circle cx="250.5" cy="231.5" r="2.2"/><circle cx="287.5" cy="195.5" r="2.2"/></g><g fill="#eef4ff" shape-rendering="crispEdges"><rect x="335" y="203" width="1" height="1" opacity="0.43"/><rect x="334" y="209" width="1" height="1" opacity="0.30"/><rect x="319" y="245" width="1" height="1" opacity="0.74"/><rect class="tw" x="385" y="61" width="1" height="1" opacity="0.61"/><rect x="370" y="168" width="1" height="1" opacity="0.47"/><rect x="348" y="222" width="1" height="1" opacity="0.35"/><rect x="345" y="204" width="1" height="1" opacity="0.92"/><rect x="250" y="231" width="1" height="1" opacity="0.94"/><rect class="tw" x="336" y="117" width="1" height="1" opacity="0.62"/><rect x="334" y="145" width="1" height="1" opacity="0.49"/><rect x="354" y="91" width="1" height="1" opacity="0.74"/><rect x="304" y="199" width="1" height="1" opacity="0.78"/><rect x="318" y="169" width="1" height="1" opacity="0.64"/><rect class="tw" x="381" y="125" width="1" height="1" opacity="0.89"/><rect x="287" y="195" width="1" height="1" opacity="0.83"/></g></g>
+      <g class="drift d3"><g filter="url(#fh)" fill="#cfe0ff" opacity=".35"></g><g fill="#eef4ff" shape-rendering="crispEdges"><rect x="375" y="161" width="1" height="1" opacity="0.39"/><rect class="tw" x="335" y="181" width="1" height="1" opacity="0.73"/><rect x="403" y="123" width="1" height="1" opacity="0.38"/><rect x="367" y="167" width="1" height="1" opacity="0.78"/><rect x="347" y="176" width="1" height="1" opacity="0.75"/><rect x="326" y="171" width="1" height="1" opacity="0.36"/><rect class="tw" x="320" y="163" width="1" height="1" opacity="0.38"/><rect x="324" y="203" width="1" height="1" opacity="0.51"/><rect x="377" y="144" width="1" height="1" opacity="0.50"/><rect x="285" y="233" width="1" height="1" opacity="0.65"/><rect x="345" y="227" width="1" height="1" opacity="0.52"/><rect class="tw" x="367" y="181" width="1" height="1" opacity="0.67"/><rect x="329" y="136" width="1" height="1" opacity="0.89"/><rect x="403" y="113" width="1" height="1" opacity="0.66"/><rect x="399" y="115" width="1" height="1" opacity="0.84"/></g></g>
+    </svg>
+    <img class="l fg" src="assets/img/scene/fg-hero.png" alt="" width="640" height="360">
+    <div class="grade"></div>
+  </div>
+
+  <nav aria-label="Main">
+    <ul class="topnav">
+      <li><a href="#quests">Quests</a></li>
+      <li><a href="#forge">Forge</a></li>
+      <li><a href="#letter">Letter</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+  </nav>
+
+  <div class="title">
+    <h1><img class="wm" src="assets/img/ui/wordmark-v3.png" alt="Keep the Sword" width="98" height="48"></h1>
+    <p class="tagline">Hire the blacksmith. <b>Own the sword.</b></p>
+  </div>
+
+  <section class="intro" aria-label="Hello from Andrew">
+    <div class="wrap dialog">
+      <div class="win portrait"><img src="assets/img/ui/andrew-v8-bust.png" alt="Andrew as a pixel sprite: short blond hair, a ginger beard, a black tee." width="44" height="40"></div>
+      <div class="win say has-tab">
+        <span class="tab">Andrew</span>
+        <p>I'm Andrew. I build real things with AI on my own PC, then show you what worked, what broke and what you keep.</p>
+        <ul class="menu">
+          <!-- TODO: point at the first video once it is live -->
+          <li><a class="btn btn-primary" href="#quest-book-forge"><span>Watch the first quest</span></a></li>
+          <li><a class="btn" href="https://www.youtube.com/@keepthesword" rel="me"><span>Subscribe on YouTube</span></a></li>
+        </ul>
+        <a class="more" href="#thesis"><img src="assets/img/ui/next.png" alt="More" width="7" height="5"></a>
+      </div>
+    </div>
+  </section>
+</header>
+
+<main id="main">
+
+  <section id="thesis" aria-labelledby="thesis-h">
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="label label-ico"><img class="ico" src="assets/img/icons/moon.png" alt="" width="16" height="16">The idea</p>
+        <h2 class="h2" id="thesis-h">Own your future</h2>
+        <p class="lead">AI is changing work and life fast, and a lot of people are scared. I'd rather get ready than panic. My answer is to own things.</p>
+      </header>
+
+      <ul class="grid grid-4 plain" role="list">
+        <li class="win own">
+          <div class="tile"><img class="ico" src="assets/img/icons/chip.png" alt="" width="16" height="16"></div>
+          <h3 class="name">Own your AI</h3>
+          <p>Models that run on hardware you own, with your data staying yours.</p>
+        </li>
+        <li class="win own">
+          <div class="tile"><img class="ico" src="assets/img/icons/sword.png" alt="" width="16" height="16"></div>
+          <h3 class="name">Own your work</h3>
+          <p>Tools, code and data you can open, fix and keep.</p>
+        </li>
+        <li class="win own">
+          <div class="tile"><img class="ico" src="assets/img/icons/heart.png" alt="" width="16" height="16"></div>
+          <h3 class="name">Own your body</h3>
+          <p>Strength and health you build yourself. No app does the reps for you.</p>
+        </li>
+        <li class="win own">
+          <div class="tile"><img class="ico" src="assets/img/icons/staff.png" alt="" width="16" height="16"></div>
+          <h3 class="name">Own your mind</h3>
+          <p>Skills that stay with you when the tools change.</p>
+        </li>
+      </ul>
+
+      <div class="win smith">
+        <div>
+          <img class="sword" src="assets/img/ui/sword-A-sym.png" alt="" width="66" height="9">
+          <blockquote><p>Hire the blacksmith.<br><b>Own the sword.</b></p></blockquote>
+        </div>
+        <div>
+          <p>I use cloud AI every day. That's hiring the blacksmith, and it's fine. What matters is that you own what comes out of it: your tools, your code, your data, your skills, your health.</p>
+          <p>A borrowed sword can be taken back.</p>
+          <p class="dim">So I test what runs on my PC against the cloud, honestly. When the cloud wins, I say so. Own the floor, rent the peak.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="quests" aria-labelledby="quests-h">
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="label label-ico"><img class="ico" src="assets/img/icons/quest.png" alt="" width="16" height="16">Quest log</p>
+        <h2 class="h2" id="quests-h">The quests</h2>
+        <p class="lead">Every video is a quest: one real build, start to finish, on a real PC at home.</p>
+      </header>
+
+      <div class="grid grid-q">
+        <article class="win active has-tab quest feature" id="quest-book-forge" aria-labelledby="q1">
+          <span class="tab">New quest</span>
+          <div class="q-main">
+            <img class="book" src="assets/img/ui/storybook.png" alt="" width="46" height="31">
+            <div class="quest-meta"><span class="label">Quest 01</span><span class="chip chip-now">Now</span></div>
+            <h3 class="quest-title" id="q1">The Book Forge</h3>
+            <p>I build my 6-year-old a reading app with only local AI. Books at her level, about things she loves. Then the same build in the cloud, and an honest talk about why own anything.</p>
+          </div>
+          <div class="q-side">
+            <ul class="chips" role="list"><li class="chip chip-pc">Runs on my PC</li><li class="chip">Cloud <span class="off">Off</span></li></ul>
+            <div class="reward">
+              <span class="label">Reward</span>
+              <p class="warm">Books that are hers to keep</p>
+              <p class="label soon">First video coming soon</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="win quest" aria-labelledby="q2">
+          <div class="top"><img class="ico" src="assets/img/icons/cloud.png" alt="" width="16" height="16"><span class="status label"><img src="assets/img/ui/box.png" alt="" width="7" height="7">Planned</span></div>
+          <h3 class="quest-title" id="q2">Local vs Cloud</h3>
+          <p>Rematches between models on my PC and the best cloud models, again each time the hardware gets better. When the cloud wins, I say so.</p>
+          <ul class="chips" role="list"><li class="chip chip-local">Local</li><li class="chip">Cloud on</li></ul>
+        </article>
+
+        <article class="win quest" aria-labelledby="q3">
+          <div class="top"><img class="ico" src="assets/img/icons/heart.png" alt="" width="16" height="16"><span class="status label"><img src="assets/img/ui/box.png" alt="" width="7" height="7">Planned</span></div>
+          <h3 class="quest-title" id="q3">Dunk at 40</h3>
+          <p>I'm 40 and I want to dunk a basketball. Strength work, jump training and honest updates on my HP.</p>
+          <ul class="chips" role="list"><li class="chip chip-lv">LV 40</li></ul>
+        </article>
+
+        <article class="win quest" aria-labelledby="q4">
+          <div class="top"><img class="ico" src="assets/img/icons/shield.png" alt="" width="16" height="16"><span class="status label"><img src="assets/img/ui/box.png" alt="" width="7" height="7">Planned</span></div>
+          <h3 class="quest-title" id="q4">The Home Server</h3>
+          <p>Building out my home server one piece at a time, and showing what is worth running at home.</p>
+          <ul class="chips" role="list"><li class="chip chip-local">Local</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="forge" aria-labelledby="forge-h">
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="label label-ico"><img class="ico" src="assets/img/icons/staff.png" alt="" width="16" height="16">The forge</p>
+        <h2 class="h2" id="forge-h">Things I build and give away</h2>
+        <p class="lead">Some builds turn into tools worth sharing. When they do, they go here for you to take and keep.</p>
+      </header>
+
+      <div class="grid grid-2">
+        <article class="win tool" aria-labelledby="t1">
+          <div class="head">
+            <div class="tile"><img class="ico" src="assets/img/icons/monitor.png" alt="" width="16" height="16"></div>
+            <h3 class="name" id="t1">Phosphor-OS</h3>
+          </div>
+          <p>The custom retro desktop I run on my home PC, with an amber CRT terminal look. Free to take and change.</p>
+          <ul class="menu">
+            <!-- TODO: link to the Phosphor-OS page or repo when it is public -->
+            <li><a class="btn" href="#todo-phosphor-os"><span>Take a look</span></a></li>
+          </ul>
+        </article>
+
+        <article class="win tool locked" aria-labelledby="t2">
+          <div class="head">
+            <div class="tile"><img class="ico" src="assets/img/icons/quest.png" alt="" width="16" height="16"></div>
+            <h3 class="name" id="t2">More to come</h3>
+          </div>
+          <p>New tools land here as the quests finish. Each one is yours to keep.</p>
+          <ul class="menu">
+            <li><span class="btn btn-locked" aria-disabled="true"><span>Locked</span></span></li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="letter" aria-labelledby="letter-h">
+    <div class="wrap">
+      <div class="win letter">
+        <div class="tile-big"><img src="assets/img/icons/letter.png" alt="" width="16" height="16"></div>
+        <div>
+          <p class="label">The letter</p>
+          <h2 class="h2" id="letter-h">Get the letter</h2>
+          <p class="lead">A short email when a new quest is out. No spam. Leave any time.</p>
+        </div>
+        <!-- TODO: no backend yet. Set action to the mail provider's endpoint and remove data-todo. -->
+        <form class="signup" action="#" method="post" data-todo="signup" novalidate>
+          <label class="label" for="email">Your email</label>
+          <div class="row">
+            <input class="field" id="email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required>
+            <ul class="menu"><li><button class="btn btn-primary" type="submit"><span>Sign up</span></button></li></ul>
+          </div>
+          <p class="form-note dim" id="form-note" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" aria-labelledby="about-h">
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="label label-ico"><img class="ico" src="assets/img/icons/candle.png" alt="" width="16" height="16">The party</p>
+        <h2 class="h2" id="about-h">About Andrew</h2>
+      </header>
+      <div class="win party">
+        <div class="stage"><img src="assets/img/ui/andrew-v8.png" alt="Andrew as a pixel sprite: short blond hair, a short ginger beard, a black tee, olive cargo pants and white sneakers, holding a sword point down." width="44" height="75"></div>
+        <div>
+          <div class="who"><span class="big">Andrew</span><span class="chip chip-lv">LV 40</span><span class="label">Builder</span></div>
+          <p>I'm 40, a dad of two young daughters, and I've built software for 21 years. My day job is in AI consulting, so I use AI tools all day.</p>
+          <p>At home I run local AI models on my own PC and a home server, and I build small apps for my family and me. I also like retro games, fantasy, basketball, lifting and projects around the house.</p>
+          <p class="dim">This channel is me doing the work in the open. Some builds win. Some fail and my HP drops. You see both.</p>
+          <ul class="stats" role="list">
+            <li><img class="ico" src="assets/img/icons/chip.png" alt="" width="16" height="16"><span class="label">GPU <b>20 GB</b></span></li>
+            <li><img class="ico" src="assets/img/icons/quest.png" alt="" width="16" height="16"><span class="label">Building <b>21 years</b></span></li>
+            <li><img class="ico" src="assets/img/icons/book.png" alt="" width="16" height="16"><span class="label">Dad of <b>two</b></span></li>
+            <li><img class="ico" src="assets/img/icons/heart.png" alt="" width="16" height="16"><span class="label">Goal <b>dunk at 40</b></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <img class="sword" src="assets/img/ui/sword-A-sym.png" alt="" width="66" height="9">
+    <p class="handle">@keepthesword</p>
+    <p class="small">Same name on YouTube and the socials.</p>
+    <nav aria-label="Elsewhere">
+      <ul>
+        <li><a href="https://www.youtube.com/@keepthesword" rel="me"><img class="ico" src="assets/img/icons/play.png" alt="" width="16" height="16">YouTube</a></li>
+        <li><a class="lc" href="mailto:andrew@keepthesword.com"><img class="ico" src="assets/img/icons/letter.png" alt="" width="16" height="16">andrew@keepthesword.com</a></li>
+        <li><a href="#top"><img class="ico" src="assets/img/icons/moon.png" alt="" width="16" height="16">Back to top</a></li>
+      </ul>
+    </nav>
+    <p class="small">&copy; 2026 Keep the Sword. Hire the blacksmith. Own the sword.</p>
+  </div>
+</footer>
+
+<script src="assets/js/site.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<!-- Source for assets/og-image.png (1200 x 630). Render: node tools/shot.mjs http://127.0.0.1:8765/tools/og.html assets/og-image.png 1200 630 reduced -->
+<link rel="stylesheet" href="../assets/css/tokens.css"><link rel="stylesheet" href="../assets/css/site.css">
+<style>
+  html, body { width: 1200px; height: 630px; overflow: hidden; margin: 0; }
+  .hero { position: relative; width: 1200px; height: 630px; }
+  .scene { position: absolute; inset: 0; height: auto; --s: 4; --fx: 300; --vb: 210; }
+  .scene::after { display: none; }
+  .og-title { position: absolute; z-index: 4; left: 60px; top: 54px; }
+  .og-title .wm { width: 294px; height: 144px; display: block; }
+  .og-title p { margin: 15px 0 0; font: 32px/1.3 var(--k-font-body); color: var(--k-steel-light); text-shadow: 0 4px 0 var(--k-abyss); }
+  .og-title b { font-weight: 400; color: var(--k-moonwhite); }
+  .og-url { position: absolute; z-index: 4; left: 60px; bottom: 45px; font: 30px/1 var(--k-font-label); letter-spacing: 3px;
+            color: var(--k-steel-light); text-shadow: var(--k-text-shadow); }
+</style></head>
+<body><div class="hero">
+  <div class="scene" role="img" aria-label="Pixel art: Andrew at his PC in a moonlit stone keep at night. A candle burns on a stack of books, and a sword hangs on the wall in the moonbeam from an arched window.">
+    <img class="l sky" src="../assets/img/scene/sky-v8.png" alt="" width="640" height="360">
+    <img class="l room" src="../assets/img/scene/room-v8.png" alt="" width="640" height="360">
+    <svg class="l light" viewBox="-80 -45 640 360" aria-hidden="true" focusable="false">
+      <defs>
+        <radialGradient id="gWin" cx="392" cy="112" r="110" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#9fbaff" stop-opacity=".30"/><stop offset="1" stop-color="#9fbaff" stop-opacity="0"/></radialGradient>
+        <linearGradient id="gShaft" x1="392" y1="58" x2="250" y2="262" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#e2ecff" stop-opacity=".42"/>
+          <stop offset=".5" stop-color="#c4d6ff" stop-opacity=".18"/>
+          <stop offset="1" stop-color="#b0c4ff" stop-opacity=".06"/></linearGradient>
+        <radialGradient id="gSword" cx="326" cy="141" r="44" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#cfdcff" stop-opacity=".22"/><stop offset="1" stop-color="#cfdcff" stop-opacity="0"/></radialGradient>
+        <radialGradient id="gScreen" cx="187" cy="160" r="60" gradientUnits="userSpaceOnUse" gradientTransform="translate(187 160) scale(1 .7) translate(-187 -160)">
+          <stop offset="0" stop-color="#4fe6d4" stop-opacity=".55"/><stop offset=".45" stop-color="#3bb8c8" stop-opacity=".18"/><stop offset="1" stop-color="#3bb8c8" stop-opacity="0"/></radialGradient>
+        <radialGradient id="gPage" cx="224" cy="157" r="26" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#fff1d6" stop-opacity=".14"/><stop offset="1" stop-color="#fff1d6" stop-opacity="0"/></radialGradient>
+        <radialGradient id="gCandle" cx="149" cy="157" r="48" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#ffb070" stop-opacity=".62"/><stop offset=".3" stop-color="#ff8a4c" stop-opacity=".22"/><stop offset="1" stop-color="#ff8a4c" stop-opacity="0"/></radialGradient>
+        <linearGradient id="gFog" x1="0" y1="186" x2="0" y2="250" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#7c8ed6" stop-opacity="0"/><stop offset=".45" stop-color="#7c8ed6" stop-opacity=".13"/><stop offset="1" stop-color="#7c8ed6" stop-opacity="0"/></linearGradient>
+        <filter id="fs" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.4"/></filter>
+        <filter id="fs2" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation=".8"/></filter>
+      </defs>
+      <rect x="-100" y="-100" width="800" height="500" fill="url(#gWin)"/>
+      <g class="shafts">
+        <g filter="url(#fs)">
+          <polygon points="369,60 391,52 391,170 362,210 255,262 228,262" fill="url(#gShaft)"/>
+          <polygon points="392,52 410,62 410,170 384,210 282,262 257,262" fill="url(#gShaft)"/>
+        </g>
+        <g filter="url(#fs2)" opacity=".55">
+          <polygon points="372,70 376,68 262,250 256,250" fill="url(#gShaft)"/>
+          <polygon points="383,60 386,60 272,254 268,254" fill="url(#gShaft)"/>
+          <polygon points="399,62 404,64 290,256 284,256" fill="url(#gShaft)"/>
+        </g>
+      </g>
+      <rect x="-100" y="-100" width="800" height="500" fill="url(#gSword)"/>
+      <rect x="-100" y="-100" width="800" height="500" fill="url(#gScreen)"/>
+      <rect x="-100" y="-100" width="800" height="500" fill="url(#gPage)"/>
+      <rect x="-100" y="-100" width="800" height="500" fill="url(#gCandle)"/>
+      <rect x="-100" y="186" width="800" height="64" fill="url(#gFog)"/>
+    </svg>
+    <img class="l bloom1" src="../assets/img/scene/glow-v8.png" alt="" width="640" height="360">
+    <img class="l bloom2" src="../assets/img/scene/glow-v8.png" alt="" width="640" height="360">
+    <svg class="l fx" viewBox="-80 -45 640 360" aria-hidden="true" focusable="false">
+      <defs>
+        <filter id="fh"><feGaussianBlur stdDeviation="1.2"/></filter>
+        <radialGradient id="gFlick" cx="149" cy="157" r="30" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#ffb070" stop-opacity=".45"/><stop offset=".4" stop-color="#ff8a4c" stop-opacity=".14"/><stop offset="1" stop-color="#ff8a4c" stop-opacity="0"/></radialGradient>
+      </defs>
+      <!-- candle flicker: extra warm light at the candle, opacity animated -->
+      <rect class="flick" x="100" y="110" width="100" height="100" fill="url(#gFlick)" opacity=".55"/>
+      <!-- sword shimmer: a light runs along the fuller (centre row, keeps the blade symmetric), then a glint -->
+      <rect class="sweep" x="300" y="140" width="3" height="1" fill="#ffffff" shape-rendering="crispEdges"/>
+      <g class="star" fill="#ffffff" shape-rendering="crispEdges">
+        <rect x="313" y="140" width="5" height="1"/><rect x="315" y="138" width="1" height="5"/>
+      </g>
+      <!-- dust in the moonbeam (tools/motes.mjs) -->
+      <g class="drift d1"><g filter="url(#fh)" fill="#cfe0ff" opacity=".35"><circle cx="313.5" cy="153.5" r="2.2"/></g><g fill="#eef4ff" shape-rendering="crispEdges"><rect class="tw" x="329" y="139" width="1" height="1" opacity="0.58"/><rect x="286" y="251" width="1" height="1" opacity="0.42"/><rect x="387" y="67" width="1" height="1" opacity="0.37"/><rect x="334" y="222" width="1" height="1" opacity="0.71"/><rect x="335" y="221" width="1" height="1" opacity="0.55"/><rect class="tw" x="282" y="253" width="1" height="1" opacity="0.70"/><rect x="270" y="219" width="1" height="1" opacity="0.85"/><rect x="313" y="153" width="1" height="1" opacity="0.37"/><rect x="382" y="163" width="1" height="1" opacity="0.81"/><rect x="320" y="222" width="1" height="1" opacity="0.53"/><rect class="tw" x="389" y="157" width="1" height="1" opacity="0.56"/><rect x="273" y="251" width="1" height="1" opacity="0.45"/><rect x="388" y="154" width="1" height="1" opacity="0.35"/><rect x="330" y="237" width="1" height="1" opacity="0.45"/><rect x="313" y="166" width="1" height="1" opacity="0.37"/><rect class="tw" x="250" y="253" width="1" height="1" opacity="0.74"/></g></g>
+      <g class="drift d2"><g filter="url(#fh)" fill="#cfe0ff" opacity=".35"><circle cx="335.5" cy="203.5" r="2.2"/><circle cx="250.5" cy="231.5" r="2.2"/><circle cx="287.5" cy="195.5" r="2.2"/></g><g fill="#eef4ff" shape-rendering="crispEdges"><rect x="335" y="203" width="1" height="1" opacity="0.43"/><rect x="334" y="209" width="1" height="1" opacity="0.30"/><rect x="319" y="245" width="1" height="1" opacity="0.74"/><rect class="tw" x="385" y="61" width="1" height="1" opacity="0.61"/><rect x="370" y="168" width="1" height="1" opacity="0.47"/><rect x="348" y="222" width="1" height="1" opacity="0.35"/><rect x="345" y="204" width="1" height="1" opacity="0.92"/><rect x="250" y="231" width="1" height="1" opacity="0.94"/><rect class="tw" x="336" y="117" width="1" height="1" opacity="0.62"/><rect x="334" y="145" width="1" height="1" opacity="0.49"/><rect x="354" y="91" width="1" height="1" opacity="0.74"/><rect x="304" y="199" width="1" height="1" opacity="0.78"/><rect x="318" y="169" width="1" height="1" opacity="0.64"/><rect class="tw" x="381" y="125" width="1" height="1" opacity="0.89"/><rect x="287" y="195" width="1" height="1" opacity="0.83"/></g></g>
+      <g class="drift d3"><g filter="url(#fh)" fill="#cfe0ff" opacity=".35"></g><g fill="#eef4ff" shape-rendering="crispEdges"><rect x="375" y="161" width="1" height="1" opacity="0.39"/><rect class="tw" x="335" y="181" width="1" height="1" opacity="0.73"/><rect x="403" y="123" width="1" height="1" opacity="0.38"/><rect x="367" y="167" width="1" height="1" opacity="0.78"/><rect x="347" y="176" width="1" height="1" opacity="0.75"/><rect x="326" y="171" width="1" height="1" opacity="0.36"/><rect class="tw" x="320" y="163" width="1" height="1" opacity="0.38"/><rect x="324" y="203" width="1" height="1" opacity="0.51"/><rect x="377" y="144" width="1" height="1" opacity="0.50"/><rect x="285" y="233" width="1" height="1" opacity="0.65"/><rect x="345" y="227" width="1" height="1" opacity="0.52"/><rect class="tw" x="367" y="181" width="1" height="1" opacity="0.67"/><rect x="329" y="136" width="1" height="1" opacity="0.89"/><rect x="403" y="113" width="1" height="1" opacity="0.66"/><rect x="399" y="115" width="1" height="1" opacity="0.84"/></g></g>
+    </svg>
+    <img class="l fg" src="../assets/img/scene/fg-hero.png" alt="" width="640" height="360">
+    <div class="grade"></div>
+  </div>
+
+  <div class="og-title"><img class="wm" src="../assets/img/ui/wordmark-v3.png" alt="Keep the Sword" width="98" height="48">
+    <p>Hire the blacksmith.<br><b>Own the sword.</b></p></div>
+  <div class="og-url">KEEPTHESWORD.COM</div>
+</div></body></html>
