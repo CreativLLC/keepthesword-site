@@ -144,7 +144,7 @@ h2, h3 { margin: 0; font-weight: 400; }
   --s: 4;          /* whole-number scale of the scene art */
   --fx: 194;       /* hero-space x at the centre of the view */
   --vb: 222;       /* hero-space y at the bottom of the view */
-  position: relative; height: 630px; overflow: hidden; isolation: isolate; background: var(--k-abyss);
+  position: relative; height: 700px; overflow: hidden; isolation: isolate; background: var(--k-abyss);
 }
 .scene > .l {
   position: absolute; display: block;
@@ -209,11 +209,11 @@ h2, h3 { margin: 0; font-weight: 400; }
 }
 .topnav a:hover { color: var(--k-moonwhite); }
 .title {
-  position: absolute; z-index: 4; left: 0; right: 0; top: 72px; text-align: center;
+  position: absolute; z-index: 4; left: 0; right: 0; top: 48px; text-align: center;
   padding: 0 var(--ks-edge);
 }
 .title h1 { margin: 0; line-height: 0; }
-.title .wm { width: 294px; height: 144px; }            /* wordmark 98 x 48 art at 3x */
+.title .logo { width: 267px; height: 246px; }         /* logo 89 x 82 art at 3x */
 .tagline {
   margin: 12px auto 0; max-width: 20ch; font: 24px/1.25 var(--k-font-body); color: var(--k-steel-light);
   text-shadow: var(--k-text-shadow);
@@ -243,9 +243,9 @@ h2, h3 { margin: 0; font-weight: 400; }
   .hero { height: clamp(690px, 100svh, 1035px); }
   .scene { --fx: 280; --vb: 276; position: absolute; inset: 0; height: auto; }
   .topnav { justify-content: flex-end; top: 21px; gap: 6px 30px; }
-  .title { left: max(var(--ks-edge), (100% - var(--ks-wrap)) / 2); right: auto; top: 72px; text-align: left; padding: 0; }
-  .title .wm { width: 392px; height: 192px; }           /* 4x */
-  .tagline { margin: 18px 0 0; max-width: none; font-size: 32px; text-shadow: 0 4px 0 var(--k-abyss); }
+  /* The logo sits above the desk in the scene: 3x by default, 4x on tall screens, 2x on short ones. */
+  .title { left: max(var(--ks-edge), (100% - var(--ks-wrap)) / 2); right: auto; top: 30px; text-align: left; padding: 0; }
+  .tagline { margin: 12px 0 0; max-width: none; font-size: 24px; }
   .intro { position: absolute; left: 0; right: 0; bottom: 33px; margin: 0; }
   .dialog { grid-template-columns: auto 1fr; }
   .portrait {
@@ -255,15 +255,19 @@ h2, h3 { margin: 0; font-weight: 400; }
       var(--k-night);
     background-clip: padding-box;
   }
-  .portrait img { width: 132px; height: 120px; }       /* bust 44 x 40 at 3x */
+  .portrait img { width: 102px; height: 132px; }       /* v9 status portrait 34 x 44 at 3x */
   .say { padding: 42px 30px 24px; }
   .say p { max-width: 56ch; }
   .say .menu { flex-direction: row; align-items: center; }
 }
-@media (min-width: 760px) and (max-height: 860px) {
-  .title { top: 66px; }
-  .title .wm { width: 294px; height: 144px; }          /* 3x on short screens */
-  .tagline { margin-top: 12px; font-size: 24px; text-shadow: var(--k-text-shadow); }
+@media (min-width: 760px) and (min-height: 1000px) {
+  .title { top: 60px; }
+  .title .logo { width: 356px; height: 328px; }        /* 4x on tall screens */
+  .tagline { margin-top: 18px; font-size: 32px; text-shadow: 0 4px 0 var(--k-abyss); }
+}
+@media (min-width: 760px) and (max-height: 800px) {
+  .title { top: 24px; }
+  .title .logo { width: 178px; height: 164px; }        /* 2x on short screens */
 }
 @media (min-width: 1921px) { .scene { --s: 5; } }
 
@@ -314,7 +318,9 @@ main > section { padding: 96px 0 0; }
 
 /* quest cards */
 .grid-q { grid-template-columns: minmax(0, 1fr); }
-.quest .soon { color: var(--k-steel-light); }
+/* Jacquard draws "AI" like "XI", so a quest title with AI in it uses Jersey caps instead. */
+.quest-title.caps { font: 48px/1.05 var(--k-font-label); letter-spacing: 2px; text-transform: uppercase; }
+@media (max-width: 759px) { .quest-title.caps { font-size: 40px; } }
 @media (min-width: 900px) {
   .quest.feature { display: grid; grid-template-columns: 3fr 2fr; gap: 0 48px; align-items: end; padding: 48px 36px 24px; }
 }
@@ -327,11 +333,18 @@ main > section { padding: 96px 0 0; }
 .quest .book { width: 138px; height: 93px; display: block; margin: 0 0 18px; }   /* storybook 46 x 31 at 3x */
 .quest-meta { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
 .reward { margin-top: auto; }
+.q-side .menu { margin-top: 24px; }
 .reward .label { display: block; margin-bottom: 6px; }
 .status { display: inline-flex; align-items: center; gap: 12px; }
 .status img { width: 21px; height: 21px; }           /* the to-do box 7 x 7 at 3x */
 
 /* the forge */
+.forge-top { display: grid; gap: 0 48px; margin-bottom: 42px; }
+.forge-top .sec-head { margin-bottom: 0; }
+.desk { line-height: 0; }
+.desk img { width: 273px; height: 261px; }            /* v9 desk 91 x 87 art at 3x */
+@media (max-width: 759px) { .desk { margin-top: 30px; } }
+@media (min-width: 760px) { .forge-top { grid-template-columns: 1fr auto; align-items: end; } }
 .tool { display: grid; gap: 18px; }
 .tool .head { display: flex; align-items: center; gap: 18px; }
 .tool .tile { display: grid; place-items: center; width: 66px; height: 66px; background: var(--k-stone); box-shadow: 0 0 0 3px var(--k-abyss); flex: none; }
@@ -341,37 +354,15 @@ main > section { padding: 96px 0 0; }
 .tool.locked .name { color: var(--k-mist); }
 .tool .menu { margin-top: 6px; }
 
-/* the letter */
-.letter { padding: 42px 24px 30px; }
-.signup { display: grid; gap: 12px; max-width: 690px; }
-.signup label { display: block; }
-.signup .row { display: grid; gap: 18px; }
-.field {
-  height: 54px; width: 100%; padding: 0 15px;
-  font: 20px var(--k-font-body); color: var(--k-moonwhite);
-  background: var(--k-abyss); border: 3px solid var(--k-steel-shade); border-radius: 0;
-  box-shadow: inset 0 3px 0 var(--k-abyss);
-}
-.field::placeholder { color: var(--k-mist); opacity: 1; }
-.field:focus-visible { outline: 3px solid var(--k-moonwhite); outline-offset: 3px; border-color: var(--k-steel-light); }
-.form-note { min-height: 30px; margin: 6px 0 0; font-size: 20px; }
-@media (min-width: 760px) {
-  .letter { padding: 54px 48px 36px; display: grid; grid-template-columns: auto 1fr; gap: 0 36px; }
-  .letter .tile-big { grid-row: 1 / span 3; }
-  .signup .row { grid-template-columns: 1fr auto; align-items: center; }
-}
-.tile-big { display: grid; place-items: center; width: 102px; height: 102px; background: var(--k-stone); box-shadow: 0 0 0 3px var(--k-abyss); margin-bottom: 24px; }
-.tile-big img { width: 64px; height: 64px; }          /* letter icon at 4x */
-
 /* about: the party window */
 .party { display: grid; gap: 30px; padding: 42px 24px 24px; }
 .party .stage {
-  display: flex; align-items: flex-end; justify-content: center; min-height: 405px; padding-bottom: 15px;
+  display: flex; align-items: flex-end; justify-content: center; min-height: 455px; padding-bottom: 15px;
   background:
     radial-gradient(ellipse 60% 55% at 50% 52%, rgba(150, 175, 240, .2) 0, rgba(150, 175, 240, 0) 70%),
     linear-gradient(180deg, transparent calc(100% - 15px), var(--k-abyss) calc(100% - 15px));
 }
-.party .stage img { width: 220px; height: 375px; }   /* sprite 44 x 75 at 5x */
+.party .stage img { width: 220px; height: 425px; }   /* v9 idle 44 x 85 at 5x */
 .party .who { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; margin-bottom: 24px; }
 .party .who .big { font: var(--ks-h2)/1 var(--k-font-label); letter-spacing: 3px; color: var(--k-moonwhite); text-transform: uppercase; }
 .stats { list-style: none; margin: 30px 0 0; padding: 0; display: grid; gap: 15px 30px; }
@@ -399,5 +390,5 @@ main > section { padding: 96px 0 0; }
 /* 404 */
 .lost { min-height: 100svh; display: grid; place-items: center; padding: 60px var(--ks-edge); }
 .lost .win { max-width: 720px; width: 100%; display: grid; gap: 24px; justify-items: center; text-align: center; padding: 48px 24px 36px; }
-.lost .pose { width: 220px; height: 375px; }
+.lost .pose { width: 225px; height: 425px; }      /* v9 nervous 45 x 85 at 5x */
 .lost .menu { padding-left: 0; }
